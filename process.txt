@@ -17,3 +17,10 @@
 7. kubectl get svc --> Take link of loadbalancer or nodeport ip and check application
 
 8. helm uninstall app1 --> for delete the application.
+
+
+Also check this website for details description 
+https://medium.com/@veerababu.narni232/writing-your-first-helm-chart-for-hello-world-40c05fa4ac5a
+
+
+
