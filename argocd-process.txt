@@ -1,0 +1,33 @@
+1. connect ec2 server and install argocd 
+
+2. kubectl create namespace argocd
+
+3. kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml  --> install argocd
+
+4. kubectl get all -n argocd            ### to check what resources it has created.
+
+5. kubectl edit svc argocd-server -n argocd             ### enable Node Port or LoadBalancer
+
+6. kubectl get secret argocd-initial-admin-secret -n argocd -o yaml  ### Copy the password
+
+7. echo "secret value" | base64 --decode                #### add the copied password and paste in secret value
+
+8. cpoy the secret value                                ### copy and store somewhere
+
+9. kuectl get svc -o wide                               ### check that on which service port app is running e.g 31117 = like this port number
+
+10. kubectl get nodes -o wide                        ### check external ip and add port number at the end e.g 3.80.84.147:31117
+
+11. At login page user = admin and password = copied secret value
+
+12. click on create Application and give name, project name, sync option is automatic 
+
+13. In the repo url paste this project url and path give "." 
+
+14. namespace = argocd and create the application.
+
+15. check all the pods are running or not.
+
+16. If you want to do some modification in the application do in the github repo and save it.
+
+17. argocd will automatically sync changes or you can do it manually just click on sync.
