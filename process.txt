@@ -1,0 +1,19 @@
+1. Create the Ec2 instance and create EKS and nodegroup
+
+2. Install the kubectl and configure aws keys and attatch IAM role
+
+3. Install the helm in ec2 server
+ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+ chmod 700 get_helm.sh
+ ./get_helm.sh
+
+4. Run command --> helm create hotstar  --> Then go to hotstar dir and Do some modifications in values.yml file add image , 
+   change ClusterIp to NodePort or LoadBalancer and change port number to 3000 , enable true horizontal scaling
+
+5. helm install app1 hostar --> to Start the application
+
+6. kubectl get pods --> to check status of application.
+
+7. kubectl get svc --> Take link of loadbalancer or nodeport ip and check application
+
+8. helm uninstall app1 --> for delete the application.
